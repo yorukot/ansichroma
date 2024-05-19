@@ -23,7 +23,7 @@ func trimTrailingNewlines(s string) (string, int) {
 		if s[i] == '\n' {
 			count++
 		} else {
-			break // 遇到非换行符即停止
+			break
 		}
 	}
 	trimmed := strings.TrimRight(s, "\n")

@@ -20,13 +20,14 @@ import (
 type NotTextFile struct {
 	FileName string
 }
+
 // test
 func (e *NotTextFile) Error() string {
 	return fmt.Sprintf("'%s' is not a text file", e.FileName)
 }
 
 // Hightlight text file. When linesToRead is 0. the complete file is read.
-func HighlightFromFile(path string, linesToRead int, style string, background lipgloss.Color) (resultString string, err error) {
+func HighlightFromFile(path string, linesToRead int, style, background string) (resultString string, err error) {
 	var buf bytes.Buffer
 	var fileContent string
 	var codeHighlight []chroma.Token
@@ -87,10 +88,10 @@ func HighlightFromFile(path string, linesToRead int, style string, background li
 		color := s.Get(data.Type)
 
 		renderString, countLineBreaks := trimTrailingNewlines(data.Value)
-		
+
 		colorStyle := lipgloss.NewStyle().
 			Foreground(lipgloss.Color(color.Colour.String())).
-			Background(background).
+			Background(lipgloss.Color(background)).
 			Bold(getTrileanToBool(color.Bold)).
 			Italic(getTrileanToBool(color.Italic)).
 			Underline(getTrileanToBool(color.Underline))
@@ -102,8 +103,8 @@ func HighlightFromFile(path string, linesToRead int, style string, background li
 	return resultString, nil
 }
 
-// Hightlight text file. When linesToRead is 0. the complete file is read.
-func HightlightString(fileContent, format string, style string, background lipgloss.Color) (resultString string, err error) {
+// Hightlight text string.
+func HightlightString(fileContent, format string, style, background string) (resultString string, err error) {
 	var buf bytes.Buffer
 	var codeHighlight []chroma.Token
 
@@ -121,10 +122,10 @@ func HightlightString(fileContent, format string, style string, background lipgl
 		color := s.Get(data.Type)
 
 		renderString, countLineBreaks := trimTrailingNewlines(data.Value)
-		
+
 		colorStyle := lipgloss.NewStyle().
 			Foreground(lipgloss.Color(color.Colour.String())).
-			Background(background).
+			Background(lipgloss.Color(background)).
 			Bold(getTrileanToBool(color.Bold)).
 			Italic(getTrileanToBool(color.Italic)).
 			Underline(getTrileanToBool(color.Underline))

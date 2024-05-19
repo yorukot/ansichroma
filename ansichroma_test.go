@@ -7,7 +7,6 @@ import (
 	"testing"
 
 	"github.com/alecthomas/chroma/lexers"
-	"github.com/charmbracelet/lipgloss"
 	"github.com/yorukot/ansichroma"
 )
 
@@ -31,7 +30,7 @@ func TestAllFilesWithPathInDirectory(t *testing.T) {
 			return nil
 		}
 		
-		result, err := ansichroma.HighlightFromFile(path, 0, "catppuccin-frappe", lipgloss.Color("#1e1e2e"))
+		result, err := ansichroma.HighlightFromFile(path, 0, "catppuccin-frappe", "#1e1e2e")
 		fmt.Printf("\n=======================================\n[%s Test] File: %s\n\n", format.Config().Name, path)
 		fmt.Println(result)
 		if err != nil {
@@ -66,7 +65,7 @@ func TestAllFilesWithStringInDirectory(t *testing.T) {
 			return nil
 		}
 
-		result, err := ansichroma.HightlightString(string(content),  format.Config().Name, "catppuccin-frappe", lipgloss.Color("#1e1e2e"))
+		result, err := ansichroma.HightlightString(string(content),  format.Config().Name, "catppuccin-frappe", "#1e1e2e")
 		fmt.Printf("\n=======================================\n[%s Test] File: %s\n\n",format.Config().Name, path)
 		fmt.Println(result)
 		if err != nil {
