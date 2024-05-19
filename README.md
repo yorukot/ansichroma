@@ -49,7 +49,7 @@ func main() {
 }
 ```
 ## Documentation
-For detailed documentation and examples, please refer to the GoDoc page.
+For detailed documentation and examples, please refer to the [GoDoc page](https://pkg.go.dev/github.com/yorukot/ansichroma).
 
 ## Contributing
 Contributions are welcome! Feel free to open issues or submit pull requests on the GitHub repository.
