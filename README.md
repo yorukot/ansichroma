@@ -1,7 +1,7 @@
 # ansichroma
 ansichroma is a Go package for syntax highlighting text files and strings using ANSI escape codes. It supports various programming languages and styles, providing a customizable way to highlight code for terminal output.
 
-ansichrom Highly based on (chroma)[https://github.com/alecthomas/chroma]
+ansichrom Highly based on [chroma](https://github.com/alecthomas/chroma)
 
 ## Installation
 To install ansichroma, use go get:
