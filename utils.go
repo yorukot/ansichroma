@@ -29,10 +29,3 @@ func trimTrailingNewlines(s string) (string, int) {
 	trimmed := strings.TrimRight(s, "\n")
 	return trimmed, count
 }
-
-func truncateString(s string, maxLength int) string {
-    if len(s) > maxLength {
-        return s[:maxLength]
-    }
-    return s
-}
